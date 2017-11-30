@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #eee;
+			}
+			.box{
+				width: 1280px;
+				margin: 200px auto;
+				border: 1px solid red;
+				overflow: hidden;
+			}
+			.box .nav{
+				width: 100%;
+				height: 30px;
+			}
+			.box .nav h6{
+				display: inline;
+			}
+			.box .nav span{
+				text-align: center;
+				line-height: 30px;
+				float: right;
+				margin-right: 10px;
+				
+			}
+			.box .nav span:first-child{
+				float: left;
+				margin-left: 20px;
+			}
+			.box .nav .active{
+			color: orange;	
+			border-bottom: 2px solid orange;
+			}
+			.box1{
+				width: 100%;
+				display: none				
+			}
+			.box1 .box2{
+				width: 360px;
+				height: 270px;
+				position: relative;
+				overflow: hidden;
+				float: left;
+				transition: all 2s;
+				margin-bottom: 10px;
+				margin-right: 10px;
+			}
+			.box1 .box2:hover{
+				box-shadow: 0 0 20px 10px #ccc;
+			}
+			.box1 .box2 span{
+				position: absolute;
+				bottom: -90px;
+				transition: all 2s;
+				text-align: center;
+			}
+			.box1 .box2:hover span{
+				bottom: 0px;
+			}
+			.show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="nav">
+				<h6>配件</h6>
+				<span class="active	">热门</span>
+				<span>保护套</span>
+				<span>贴膜</span>
+				<span>其他配件</span>
+			</div>
+			<div class="box1 show">
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>qqqqqqq</span>
+				</div>
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>qqqqq</span>
+				</div>
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>qqqqqqq</span>
+				</div>
+			
+			</div>
+			
+			<div class="box1">
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>ccccccc</span>
+				</div>
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>cccccc</span>
+				</div>
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>ccccccc</span>
+				</div>
+			
+			</div>
+			
+			<div class="box1">
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>bbbbbbb</span>
+				</div>
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>bbbbbb</span>
+				</div>
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>bbbb</span>
+				</div>
+			
+			</div>
+			
+			<div class="box1">
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>aaaa</span>
+				</div>
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>aaaaa</span>
+				</div>
+				<div class="box2">
+					<img src="http://placehold.it/360x270"/>
+					<span>aaaaaa</span>
+				</div>
+			
+			</div>
+		</div>
+	</body>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$('jquery').ready(function(){
+			//获取全部的span标签
+			var spanArr=$('span');
+			//获取所有的.box1class
+			var box1Arr=$('.box1');
+			//绑定事件
+			spanArr.on('click',function(){
+				$(this).addClass('active');
+				$(this).siblings().removeClass();
+				//获得当前的索引值
+				var key=$(this).index();
+				console.log(key)
+				//通过索引值来完成对下面相关的盒子的展示  eq()是查找  而get是获取
+				console.log(box1Arr.get(key))
+//				box1Arr.get(key).Style().css('display','block');
+				$(".box1").css('display','none')
+				$('.box1').get(key-1).style.display='block'
+			})
+		})
+	</script>
+</html>

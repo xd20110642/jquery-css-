@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul li{
+				list-style:none;
+			}
+			.box ul li ul{
+				display: none;
+			}
+			.box ul li .active{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+			<div class="box">
+				<ul>
+					<li>
+						<span>点击出现</span>
+						<ul class="active"> 
+							<li><img src="http://placehold.it/50x50"></li>
+							<li><img src="http://placehold.it/50x50"></li>
+							<li><img src="http://placehold.it/50x50"></li>
+							<li><img src="http://placehold.it/50x50"></li>
+						</ul>
+					</li>
+					<li>
+						<span>点击出现</span>
+						<ul>
+						
+							<li><img src="http://placehold.it/50x50"></li>
+							<li><img src="http://placehold.it/50x50"></li>
+							<li><img src="http://placehold.it/50x50"></li>
+							<li><img src="http://placehold.it/50x50"></li>
+						</ul>
+					</li>
+					<li>
+						<span>点击出现</span>
+						<ul>
+							<li><img src="http://placehold.it/50x50"></li>
+							<li><img src="http://placehold.it/50x50"></li>
+							<li><img src="http://placehold.it/50x50"></li>
+							<li><img src="http://placehold.it/50x50"></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+	</body>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		//返回 <ul> 元素的前一个同级元素：  这句话的作用就是让span标签获得点击事件
+//		$('li').find('ul').prev().on('click',function(){
+//			console.log(1)
+//		})
+		$('span').on('click',function(){
+			//has方法 检测某个元素是否在另一个元素中 slideUp以滑动的隐藏
+			$('li:has(ul)').find('ul').slideUp(300);
+			//判断条件 
+			if($(this).next().css('display')=='none'){
+			//slideDown以滑动的显示
+				$(this).next().slideDown(300);
+				console.log($(this).next())
+			}
+		})
+		
+	</script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background-color: #EEEEEE;
+			}
+			.box{
+				width:1280px;
+				margin: 100px auto ;
+			}
+			/*过渡是谁用 就给谁*/
+			.box1{
+				float: left;
+				width: 360px;
+				height: 270px;
+				background-color: #FFFFFF;
+				text-align: center;
+				margin-right: 10px;
+				margin-bottom: 10px;
+				/*为下面的span标签定位 子绝父相*/
+				position: relative;
+				/*遮住下面的*/
+				overflow: hidden;
+				/*添加过渡的效果*/
+				transition: all 1s;
+			} 
+			/*添加盒子阴影*/
+			.box1:hover{
+				/*水平 垂直 模糊距离 阴影尺寸 颜色 */
+				box-shadow: 0 0 20px 2px #666;
+			}
+			/*给下面的标签添加*/
+			.box1 span{
+				position: absolute;
+				width: 100%;
+				left: 0;
+				bottom: -90px;
+				background-color: red;
+				transition: all 2s;
+				
+			}
+			.box1:hover span{
+				bottom: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">
+				<img src="http://placehold.it/360x270"/>
+				<span>国侨办领导来我司参观指导！</span>
+			</div>
+			<div class="box1">
+				<img src="http://placehold.it/360x270"/>
+				<span>四川省省长尹力与宋彬先生亲切握手，并对项目高度关注！</span>
+			</div>
+			<div class="box1">
+				<img src="http://placehold.it/360x270"/>
+				<span>国侨办领导和成都科委领导来我司参观指导!</span>
+			</div>
+			<div class="box1">
+				<img src="http://placehold.it/360x270"/>
+				<span>2017年7月20日成都市组织部领导以及山东省组织部领导来到公司了解项目进展。</span>
+			</div>
+			<div class="box1">
+				<img src="http://placehold.it/360x270"/>
+				<span>受邀参加2017年成都创交会</span>
+			</div>
+			<div class="box1">
+				<img src="http://placehold.it/360x270"/>
+				<span>参加2016世界机器人博览会展出我们的产品，与世界各地的同行进行交流，收获颇丰。</span>
+			</div>
+			<div class="box1">
+				<img src="http://placehold.it/360x270"/>
+				<span>啦啦德玛西亚</span>
+			</div>
+		</div>
+	</body>
+</html>
